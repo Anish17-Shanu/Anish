@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AK_UNFOLDS | Pictures</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Light Theme Variables */
+            --bg-primary: #f5f5f7;
+            --bg-secondary: #ffffff;
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --accent-color: #0071e3;
+            --card-bg: #ffffff;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --header-bg: rgba(245, 245, 247, 0.95);
+            --footer-bg: #f5f5f7;
+        }
+
+        .dark-theme {
+            /* Dark Theme Variables */
+            --bg-primary: #1d1d1f;
+            --bg-secondary: #2c2c2e;
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --accent-color: #0071e3;
+            --card-bg: #2c2c2e;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            --header-bg: rgba(29, 29, 31, 0.95);
+            --footer-bg: #1d1d1f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background-color: var(--header-bg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        #theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+            transition: transform 0.3s ease;
+        }
+
+        #theme-toggle:hover {
+            transform: rotate(30deg);
+        }
+
+        /* Main Content */
+        main {
+            padding: 6rem 5% 3rem;
+            background-color: var(--bg-primary);
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .instagram-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .instagram-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .instagram-card {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .instagram-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .instagram-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .instagram-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .instagram-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .instagram-card:hover .instagram-overlay {
+            opacity: 1;
+        }
+
+        .instagram-overlay h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .instagram-overlay p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .instagram-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .instagram-embed {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .instagram-embed-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .instagram-embed-content {
+            margin-bottom: 1rem;
+        }
+
+        .instagram-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .instagram-link:hover {
+            color: #e1306c;
+        }
+
+        .upload-section {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .upload-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+            text-align: center;
+        }
+
+        .instagram-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .instagram-link:hover {
+            color: #e1306c;
+        }
+
+        .upload-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .form-group input[type="text"] {
+            padding: 0.8rem;
+            border-radius: 10px;
+            border: 1px solid var(--text-secondary);
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .form-group input[type="file"] {
+            padding: 0.8rem;
+            border-radius: 10px;
+            border: 1px dashed var(--text-secondary);
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        .upload-button {
+            padding: 1rem;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 1rem;
+        }
+
+        .upload-button:hover {
+            background-color: #005bb5;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--text-primary);
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .copyright {
+            margin-top: 1rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1.5rem;
+            }
+            
+            .instagram-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+            
+            .upload-section {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <header>
+        <div class="logo">AK<span>_</span>UNFOLDS</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="pictures.html">Pictures</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <main>
+        <h1 class="page-title">My Visual Journey</h1>
+        <p class="instagram-intro">A collection of moments, creativity, and inspiration captured through my lens. Follow me on Instagram for daily updates and behind-the-scenes content.</p>
+        
+        <!-- Instagram Embed -->
+        <div class="instagram-embed">
+            <h2 class="instagram-embed-title">Instagram Feed</h2>
+            <div class="instagram-embed-content">
+                <!-- Instagram will automatically replace this with your feed -->
+                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/ak_unfolds/" data-instgrm-version="14">
+                    <a href="https://www.instagram.com/ak_unfolds/"></a>
+                </blockquote>
+            </div>
+            <a href="https://instagram.com/ak_unfolds" target="_blank" class="instagram-link">
+                <i class="fab fa-instagram"></i> View Full Profile
+            </a>
+        </div>
+        
+        <!-- Gallery (will be populated by Instagram embed) -->
+        <div class="instagram-gallery" id="instagram-gallery">
+            <!-- This will be populated by the Instagram embed script -->
+        </div>
+        
+        <div class="upload-section">
+            <h2 class="upload-title">Share Your Moment</h2>
+            <a href="https://instagram.com/ak_unfolds" target="_blank" class="instagram-link">
+                <i class="fab fa-instagram"></i> View my Instagram profile
+            </a>
+            <form class="upload-form" id="upload-form">
+                <div class="form-group">
+                    <label for="caption">Caption</label>
+                    <input type="text" id="caption" placeholder="Write a caption...">
+                </div>
+                <div class="form-group">
+                    <label for="image-upload">Upload Image</label>
+                    <input type="file" id="image-upload" accept="image/*">
+                </div>
+                <button type="submit" class="upload-button">Share to Instagram</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 AK_UNFOLDS</p>
+            <p class="copyright">Made with 💻 and 💦</p>
+        </div>
+    </footer>
+
+    <!-- Instagram Embed Script -->
+    <script async src="//www.instagram.com/embed.js"></script>
+    
+    <!-- Theme Toggle Functionality -->
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        
+        // Check for saved theme preference or use default
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            // Toggle theme classes
+            body.classList.toggle('dark-theme');
+            body.classList.toggle('light-theme');
+            
+            // Toggle icon
+            if (body.classList.contains('light-theme')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'light');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Form Submission
+        const uploadForm = document.getElementById('upload-form');
+        uploadForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const caption = document.getElementById('caption').value;
+            const fileInput = document.getElementById('image-upload');
+            
+            if (!fileInput.files.length) {
+                alert('Please select an image to upload');
+                return;
+            }
+            
+            // In a real implementation, you would handle the file upload to a server
+            // For this demo, we'll just show a success message
+            alert(`Image uploaded successfully with caption: "${caption}"`);
+            
+            // Reset form
+            uploadForm.reset();
+        });
+
+        // Smooth Scrolling for Navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === 'index.html' || targetId === 'videos.html' || 
+                    targetId === 'pictures.html' || targetId === 'blog.html' || 
+                    targetId === 'contact.html') {
+                    window.location.href = targetId;
+                } else {
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
