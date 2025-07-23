@@ -7,16 +7,18 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark-theme">
     <header>
         <div class="logo">AK<span>_</span>UNFOLDS</div>
         <nav>
-            <ul>
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="videos.html">Videos</a></li>
                 <li><a href="pictures.html">Pictures</a></li>
                 <li><a href="blog.html">Blog</a></li>
+                <li><a href="projects.html">Projects</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
@@ -26,56 +28,38 @@
     </header>
 
     <main>
-        <h1 class="page-title">My Visual Journey</h1>
-        <p class="instagram-intro">A collection of moments, creativity, and inspiration captured through my lens. Follow me on Instagram for daily updates and behind-the-scenes content.</p>
-        
-        <!-- Instagram Embed -->
-        <div class="instagram-embed">
-            <h2 class="instagram-embed-title">Instagram Feed</h2>
-            <div class="instagram-embed-content">
-                <!-- Instagram will automatically replace this with your feed -->
-                <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/ak_unfolds/" data-instgrm-version="14">
-                    <a href="https://www.instagram.com/ak_unfolds/"></a>
-                </blockquote>
+        <section class="instagram-section">
+            <h1 class="page-title">My Visual Journey</h1>
+            <p class="instagram-intro">A collection of moments, creativity, and inspiration captured through my lens. Follow me on Instagram for daily updates and behind-the-scenes content.</p>
+
+            <div class="instagram-embed">
+                <h2 class="instagram-embed-title">My Instagram Feed</h2>
+                <div class="instagram-embed-content">
+                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/ak_unfolds/" data-instgrm-version="14">
+                        <a href="https://www.instagram.com/ak_unfolds/"></a>
+                    </blockquote>
+                </div>
+                <a href="https://instagram.com/ak_unfolds" target="_blank" class="instagram-link">
+                    <i class="fab fa-instagram"></i> View Full Profile on Instagram
+                </a>
             </div>
-            <a href="https://instagram.com/ak_unfolds" target="_blank" class="instagram-link">
-                <i class="fab fa-instagram"></i> View Full Profile
-            </a>
-        </div>
-        
-        <!-- Gallery (will be populated by Instagram embed) -->
-        <div class="instagram-gallery" id="instagram-gallery">
-            <!-- This will be populated by the Instagram embed script -->
-        </div>
-        
-        <div class="upload-section">
-            <h2 class="upload-title">Share Your Moment</h2>
-            <a href="https://instagram.com/ak_unfolds" target="_blank" class="instagram-link">
-                <i class="fab fa-instagram"></i> View my Instagram profile
-            </a>
-            <form class="upload-form" id="upload-form">
-                <div class="form-group">
-                    <label for="caption">Caption</label>
-                    <input type="text" id="caption" placeholder="Write a caption...">
-                </div>
-                <div class="form-group">
-                    <label for="image-upload">Upload Image</label>
-                    <input type="file" id="image-upload" accept="image/*">
-                </div>
-                <button type="submit" class="upload-button">Share to Instagram</button>
-            </form>
-        </div>
+
+            </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2025 AK_UNFOLDS</p>
-            <p class="copyright">Made with 💻 and 💦</p>
+            <p>&copy; 2025 AK_UNFOLDS. Made with 💻 and 💦</p>
+            <div class="socials">
+                <a href="https://youtube.com/@ak_unfolds" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://instagram.com/ak_unfolds" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/Anish17-Shanu" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/anish-kumar-04ba10346/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
         </div>
     </footer>
 
     <script async src="//www.instagram.com/embed.js"></script>
-
     <script defer src="scripts.js"></script>
 </body>
 </html>

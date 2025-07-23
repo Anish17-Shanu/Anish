@@ -5,34 +5,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AK_UNFOLDS | Videos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="dark-theme">
     <header>
-        <h1>Videos</h1>
+        <div class="logo">AK<span>_</span>UNFOLDS</div>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="videos.html">Videos</a>
-            <a href="pictures.html">Pictures</a>
-            <a href="blog.html">Blog</a>
-            <a href="contact.html">Contact</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="pictures.html">Pictures</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </nav>
+        <button id="theme-toggle" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i> </button>
     </header>
-    <main>
-        <section>
-            <h2>My YouTube Videos</h2>
-            <a href="https://youtube.com/@ak_unfolds" target="_blank">Visit Channel</a>
-            <form>
-                <input type="text" placeholder="Video Title">
-                <input type="url" placeholder="Video URL">
-                <button>Upload</button>
-            </form>
-        </section>
-    </main>
-    <footer><p>&copy; 2025 AK_UNFOLDS</p></footer>
-    <script async src="//www.instagram.com/embed.js"></script>
 
+    <main>
+        <section class="video-section">
+            <h1 class="page-title">My YouTube Videos</h1>
+            <p class="video-intro">Explore my latest creations, tutorials, and insights on my YouTube channel.</p>
+            <a href="https://youtube.com/@ak_unfolds" target="_blank" class="cta-button visit-channel-button">Visit My Channel <i class="fab fa-youtube"></i></a>
+
+            <div class="video-gallery">
+                <div class="video-card">
+                    <h3>introduction</h3>
+                    <div class="video-embed">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/lebOSFfu6yA?si=j5v0nMhXfdTF88_g" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p>Just an introduction video. Also my first upload.</p>
+                </div>
+
+                <div class="video-card">
+                    <h3>Take a glance in Viksit Bharat 2025</h3>
+                    <div class="video-embed">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/q00hNzZRRUk?si=yzD0UOaWRE6sk808" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p>Short glance in Viksit Bharat Young Leaders' Dialogue as recording was not allowed.</p>
+                </div>
+
+                <div class="video-card">
+                    <h3>Mera Safar</h3>
+                    <div class="video-embed">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/IEoMR2m2FzA?si=JdfWjAuf2w7L6zLJ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p>A mini vlog!</p>
+                </div>
+            </div>
+        </section>
+
+        </main>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 AK_UNFOLDS</p>
+            <p class="copyright">Made with 💻 and 💦</p>
+        </div>
+    </footer>
+
+    <script async src="//www.instagram.com/embed.js"></script>
     <script defer src="scripts.js"></script>
 </body>
 
