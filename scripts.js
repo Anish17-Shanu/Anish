@@ -51,6 +51,31 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    // In scripts.js
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelector('.nav-links');
+    const themeToggle = document.getElementById('theme-toggle'); // Assuming theme toggle is always visible
+
+    // You'll need to add a menu toggle button to your HTML for this to work
+    // For example, right next to your theme-toggle button:
+    // <button id="menu-toggle" aria-label="Toggle Navigation">☰</button>
+    const menuToggle = document.getElementById('menu-toggle');
+
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // Existing theme toggle logic (ensure it's compatible)
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            document.body.classList.toggle('light-theme'); // Assuming you have a light-theme as well
+        });
+    }
+});
+
     // Smooth Scrolling for Navigation (Index page only)
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {

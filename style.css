@@ -89,6 +89,131 @@
     background-color: #000; /* Black background for video area */
     border-radius: 10px; /* Match card radius if desired */
 }
+/* General Responsive Settings */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Removes extra space below images */
+}
+
+/* --- */
+
+/* Navigation Bar Responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    .logo {
+        margin-bottom: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        display: none; /* Hide by default on small screens, will be toggled by JS */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show when active */
+    }
+
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+
+    /* Hamburger menu icon - you'll need to add a button for this in HTML */
+    #theme-toggle {
+        margin-top: 1rem;
+    }
+}
+
+/* --- */
+
+/* Hero Section Responsiveness */
+@media (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem; /* Adjust padding for smaller screens */
+    }
+
+    .hero-content, .hero-image {
+        width: 100%;
+        margin: 0;
+    }
+
+    .hero-image {
+        margin-top: 2rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem; /* Adjust font size */
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+}
+
+/* --- */
+
+/* About Section Responsiveness */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text, .about-image {
+        width: 100%;
+    }
+
+    .about-image {
+        margin-top: 2rem;
+    }
+}
+
+/* --- */
+
+/* Features Section Responsiveness */
+@media (max-width: 768px) {
+    .feature-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
+    }
+}
+
+
+/* --- */
+
+/* Footer Responsiveness */
+@media (max-width: 768px) {
+    .footer-content {
+        text-align: center;
+    }
+
+    .socials {
+        margin-top: 1rem;
+    }
+}
+
+/* --- */
+
+/* Adjust overall padding on smaller screens */
+@media (max-width: 768px) {
+    section {
+        padding: 4rem 1rem; /* Less horizontal padding */
+    }
+}
 
 .video-embed iframe {
     position: absolute;
